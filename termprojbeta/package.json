@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.html",
+  
   "scripts": {
     "webpack": "webpack",
     "build": "webpack --config webpack.config.js",

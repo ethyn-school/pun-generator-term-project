@@ -6,6 +6,15 @@ body {
 
 
 
+.navbar, .navbar-nav, .navbar>.container-fluid{
+    background-color: #2a004ac4;
+    --bs-nav-link-color: #1CE;
+    --bs-nav-link-hover-color: #a6eb00;
+    --bs-nav-link-font-weight: medium;
+    justify-content: center;
+    flex-direction:row;
+    }
+
 .overlay  {
     position: fixed;
     top: 0;
@@ -29,11 +38,16 @@ body.show-floater .overlay {
     opacity: 1;
     pointer-events: all;
 }
+.col {
+    text-align: center;
+}
 
 .content  {
     font-size: 16px;
     line-height: 1.5;
-    max-width: 680px;
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px;
     margin: 0 auto;
     position: relative;
     border-radius: 5px;
@@ -61,57 +75,48 @@ body.show-floater .overlay {
     padding: 4px 8px;
     font-size: 14px;
 }
-.bookmarks-list {
-    position: relative;
-    z-index: 9;
-}
-.bookmark {
+
+
+button.pun {
     display: flex;
+    border-radius: 1em;
     background: #2a004ac4;
     position: relative;
     color: #a6eb00;
     padding: 20px;
-    transition: 0.3s ease all;
+    margin: 0.5em;
     font-size: 16px;
 }
     
-a.bookmark:hover   {
+button.pun:hover   {
     color: #1CE;
-    text-decoration: none;
+    text-decoration:underline;
 }
-.bookmark:first-child   {
+.pun:first-child   {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 }
-.bookmark:last-child   {
+.pun:last-child   {
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     border-bottom: 0;
 }
-.bookmark .img {
+.pun .img {
     background-color: #DDD;
     border-radius: 3px;
     background-repeat: no-repeat;
-    background-image:url('https://pbs.twimg.com/profile_images/804421640465580032/aG7EyewO_400x400.jpg');
+    background-image:'src/images/jokeGuy.png';
     background-size: 100% 100%;
     background-position: top center;
     width: 90px;
     height: 60px;
     margin-right: 20px;
 }
-.bookmark .title {
+.pun .title {
     display: flex;
     align-items: center;
 }
-.bookmark .bi-trash delete-icon-remove {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    color: #EEE;
-    font-size: 12px;
-    transition: 0.3s ease color;
-    cursor: pointer;
-}
+
 h3{
     font-size: 12px;
     color: #EEE;
