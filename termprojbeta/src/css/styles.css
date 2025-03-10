@@ -42,7 +42,7 @@ body.show-floater .overlay {
     text-align: center;
 }
 
-.content  {
+.puns-list-content  {
     font-size: 16px;
     line-height: 1.5;
     display: flex;
@@ -88,7 +88,7 @@ button.pun {
     font-size: 16px;
 }
     
-button.pun:hover   {
+.punTxt:hover   {
     color: #1CE;
     text-decoration:underline;
 }
@@ -123,4 +123,17 @@ h3{
 }
 .instruction{
     text-align: center;
+}
+.bi-trash.delete-icon{
+    font-size: x-large;
+    padding-left: 0.5em;
+    color: red
+
+}
+.bi-trash.delete-icon:hover{
+    font-size: xx-large;
+
+}
+.yippee{
+    
 }

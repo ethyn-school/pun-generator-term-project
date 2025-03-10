@@ -25,7 +25,7 @@ class Generator{
                 <div class="puns-list-content" id=${this.puns.indexOf(pun)}>
         <div><button name="addToArchive" class="pun">
             <div class="img" style="background-image:url('./images/jokeGuy.png')">&nbsp;</div>
-            <div class="pun">${pun.title}<br></div>
+            <div class="punTxt">${pun.title}<br></div>
         </button></div>
         </div>
         `;
@@ -41,19 +41,15 @@ class Generator{
 
     addToArchive(index, event){
         event.preventDefault();
-        console.log(index);
-        let pleaseWork = index-1;
-        console.log(pleaseWork);
-        const savedPun = this.puns[pleaseWork];
-        console.log(savedPun);
+        const savedPun = this.puns[index];
         this.savedPuns.push(savedPun);
         localStorage["savedPuns"] = JSON.stringify(this.savedPuns);
     }   
 
-     addEventHandlers(){
-        const addIcons = document.getElementsByName("addToArchive");
-        for (let i = 0; i < addIcons.length; i++) {
-            addIcons[i].onclick = this.addToArchive.bind(this, i);
+    addEventHandlers(){
+        const addButton = document.getElementsByName("addToArchive");
+        for (let i = 0; i < addButton.length; i++) {
+            addButton[i].onclick = this.addToArchive.bind(this, i);
         }
         
     }
@@ -169,9 +165,9 @@ END OF PART 1 - TEST AND DEBUG YOUR CODE - YOU SHOULD SEE HARDCODED BOOKMARKS YO
         -   call displayPuns
 
     -   Finish the addEventHandlers method
-        -   Create a variable called addIcons that refers to all of the 
+        -   Create a variable called addButton that refers to all of the 
             delete icons on the page.  Each has the name addToArchive.
-        -   Create a for loop that iterates through the addIcons array
+        -   Create a for loop that iterates through the addButton array
             -   set the click event for the current icon to the method
                 addToArchive and bind this and the index of the pun in that statement
                 From the todo list:

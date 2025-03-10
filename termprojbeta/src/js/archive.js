@@ -16,9 +16,9 @@ class Pun{
     constructor(){
 
         try {
-            this.puns = JSON.parse(localStorage.getItem("savedPuns"));
+            this.archive = JSON.parse(localStorage.getItem("savedPuns"));
         } catch (error) {
-            this.puns = [
+            this.archive = [
                 {
                     title: "add puns to archive using the pun generator "
                 },
@@ -39,29 +39,53 @@ class Pun{
             deleteIcons[i].onclick =this.deletePun.bind(this, i);
         }
         
+        const addButton = document.getElementsByName("addFav");
+        for (let i = 0; i < addButton.length; i++) {
+            addButton[i].onclick = this.addFav.bind(this, i);
+        }
     }
+
     generatePunHtml(pun) {
      return `
-                <div class="puns-list content">
-                <img class="img" src="./images/jokeGuy.png" alt="Joke Guy">
-                <div class="title">${pun.title}<br>
-                </div>
-                <div><i name="deletePun" class="bi-trash delete-icon"></i></div>
+                <div class="puns-list-content" id="punsList">
+        <div><button name="addFav" class="pun">
+            <div class="img" style="background-image:url('./images/jokeGuy.png')">&nbsp;</div>
+            <div class="punTxt">${pun.title}<br></div>
+            <div><i name="deletePun" class="bi-trash delete-icon"></i></div>
+        </button></div>
         </div>
         `;
     }
 
     displayPuns(){
-        let PunHtml = this.puns.map(pun => this.generatePunHtml(pun)).join('');
+        let PunHtml = this.archive.map(pun => this.generatePunHtml(pun)).join('');
         document.getElementById("punsList").innerHTML = PunHtml;
         this.addEventHandlers();
     }
     
     deletePun(index, event){
         event.preventDefault();
-        this.puns.splice(index, 1)
+        this.archive.splice(index, 1)
+        localStorage.setItem("savedPuns", JSON.stringify(this.archive));
         this.displayPuns();
     }
+
+
+    addFav(index, event){
+        event.preventDefault();
+        console.log("addFav")
+    } 
+
+  //  yippee(event){
+   //     event.preventDefault();
+   //     let YipeeHtml = `    <div class= "yippee" id="yippee">
+   //     <div class="img" style="background-image:url('./images/jokeGuy.png')"></div>
+   // </div>`;
+   //     document.getElementById("yippee").innerHTML = YipeeHtml;
+  //  }   
+
+
+
 
 }
 window.onload = () => {new Pun();}
