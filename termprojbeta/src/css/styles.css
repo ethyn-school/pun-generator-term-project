@@ -53,6 +53,11 @@ body.show-floater .overlay {
     border-radius: 5px;
 }
 
+.fav{
+    font-style: italic;
+
+}
+
 .floater  {
     background: #ffffff9f;    
     transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.4) all;
@@ -132,8 +137,6 @@ h3{
 }
 .bi-trash.delete-icon:hover{
     font-size: xx-large;
+    padding-left: 1em;
 
-}
-.yippee{
-    
 }

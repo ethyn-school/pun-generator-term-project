@@ -46,11 +46,12 @@ class Pun{
     }
 
     generatePunHtml(pun) {
+        const punNum = this.archive.indexOf(pun);
      return `
                 <div class="puns-list-content" id="punsList">
-        <div><button name="addFav" class="pun">
+        <div><button name="addFav" class="pun" >
             <div class="img" style="background-image:url('./images/jokeGuy.png')">&nbsp;</div>
-            <div class="punTxt">${pun.title}<br></div>
+            <div class="punTxt" id=${punNum}>${pun.title}<br></div>
             <div><i name="deletePun" class="bi-trash delete-icon"></i></div>
         </button></div>
         </div>
@@ -74,15 +75,14 @@ class Pun{
     addFav(index, event){
         event.preventDefault();
         console.log("addFav")
+        var fav = document.getElementById(index);
+        fav.classList.remove("punTxt");
+        fav.classList.add("fav"); 
+
+
+
     } 
 
-  //  yippee(event){
-   //     event.preventDefault();
-   //     let YipeeHtml = `    <div class= "yippee" id="yippee">
-   //     <div class="img" style="background-image:url('./images/jokeGuy.png')"></div>
-   // </div>`;
-   //     document.getElementById("yippee").innerHTML = YipeeHtml;
-  //  }   
 
 
 

@@ -22,8 +22,8 @@ class Generator{
 
     generatePunHtml(pun) {
      return `
-                <div class="puns-list-content" id=${this.puns.indexOf(pun)}>
-        <div><button name="addToArchive" class="pun">
+                <div class="puns-list-content" id="punsList"> 
+        <div><button name="addToArchive" class="pun" id=${this.puns.indexOf(pun)}>
             <div class="img" style="background-image:url('./images/jokeGuy.png')">&nbsp;</div>
             <div class="punTxt">${pun.title}<br></div>
         </button></div>
