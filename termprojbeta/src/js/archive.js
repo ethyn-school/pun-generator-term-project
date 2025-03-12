@@ -1,14 +1,5 @@
 //ethyn carnagey 3/02/2025
-/*
-    The class has the following methods
-    - fillPuns - displays the puns on the page.  It is called in the constructor
-                  and whenever a pun is changed in any way.  It calls a helper method
-                  generatePunHtml to generate the html for an individual pun object.
-                  It also calls a helper method addEventHandlers to add the event handlers
-                  that allow deleting of a pun
-    - deletePun - removes a pun from the list of pun.  It is called by 
-                  the click event handler for the trash can icon for each pun.
-*/
+
 class Pun{
 
 
@@ -20,26 +11,29 @@ class Pun{
         } catch (error) {
             this.archive = [
                 {
-                    title: "add puns to archive using the pun generator "
+                    title: "something went wrong "
                 },
                 {
-                    title: "this is where your puns will be"
+                    title: "thou shallt'nt be seeing this"
                 },
             ];
         }
         
-        this.addEventHandlers = this.addEventHandlers.bind(this);
+        this.addDeleteClick = this.addDeleteClick.bind(this);
+        this.addFavClick = this.addFavClick.bind(this);
         this.displayPuns();
     }
 
 
-    addEventHandlers(){
+    addDeleteClick(){
         const deleteIcons = document.getElementsByName("deletePun")
         for (let i = 0; i < deleteIcons.length; i++) {
             deleteIcons[i].onclick =this.deletePun.bind(this, i);
         }
-        
-        const addButton = document.getElementsByName("addFav");
+    }
+
+    addFavClick(){
+        const addButton = document.getElementsByClassName("punTxt");
         for (let i = 0; i < addButton.length; i++) {
             addButton[i].onclick = this.addFav.bind(this, i);
         }
@@ -51,7 +45,7 @@ class Pun{
                 <div class="puns-list-content" id="punsList">
         <div><button name="addFav" class="pun" >
             <div class="img" style="background-image:url('./images/jokeGuy.png')">&nbsp;</div>
-            <div class="punTxt" id=${punNum}>${pun.title}<br></div>
+            <div class="punTxt" id="${punNum}">${pun.title}<br></div>
             <div><i name="deletePun" class="bi-trash delete-icon"></i></div>
         </button></div>
         </div>
@@ -61,27 +55,31 @@ class Pun{
     displayPuns(){
         let PunHtml = this.archive.map(pun => this.generatePunHtml(pun)).join('');
         document.getElementById("punsList").innerHTML = PunHtml;
-        this.addEventHandlers();
+        this.addDeleteClick();
+        this.addFavClick();
     }
     
+    addFav(index, event){
+        event.preventDefault();
+        console.log("addFav", index);
+        let fav = document.getElementById(index);
+        fav.classList.remove("punTxt");
+        fav.classList.add("fav"); 
+    } 
+
     deletePun(index, event){
         event.preventDefault();
+        console.log(index);
         this.archive.splice(index, 1)
         localStorage.setItem("savedPuns", JSON.stringify(this.archive));
         this.displayPuns();
+       // let fav = document.getElementById(index);
+     //   fav.classList.remove("fav");
+      //  fav.classList.add("punTxt"); 
     }
 
 
-    addFav(index, event){
-        event.preventDefault();
-        console.log("addFav")
-        var fav = document.getElementById(index);
-        fav.classList.remove("punTxt");
-        fav.classList.add("fav"); 
 
-
-
-    } 
 
 
 
