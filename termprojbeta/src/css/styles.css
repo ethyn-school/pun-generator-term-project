@@ -1,10 +1,9 @@
 body { 
-    padding: 30px; 
+
     background-image: url('../images/background.gif');
        background-repeat: repeat;
+       padding:1em;
 }
-
-
 
 .navbar, .navbar-nav, .navbar>.container-fluid{
     background-color: #2a004ac4;
@@ -15,24 +14,22 @@ body {
     flex-direction:row;
     }
 
-.overlay  {
-    position: fixed;
-    top: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.80);
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: 0.3s ease opacity;
-    z-index: 10;
-    pointer-events: none;
+#archiveTitle {
+    display: flex;
+    padding-bottom: 3vw;
+    justify-content: center;
 }
 
-.col {
-    text-align: center;
-    padding-bottom: 1.5em;
+img, svg {
+    width: 95vw;
+    max-width: 45em;
+    border-bottom-style: inset;
+    border-color: darkmagenta;
 }
 
+.col{
+    flex: 0 0 0%;
+}
 
 
 .puns-list-content  {
@@ -62,7 +59,7 @@ body {
     transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.4) all;
 }
 .floater-buttons   {
-    padding: 6px 10px 8px;
+    padding: 8px;
     text-align: center;
 }
 
@@ -83,20 +80,19 @@ button.pun {
 }
 
 .pun .img {
-    background-color: #DDD;
-    border-radius: 3px;
-    background-repeat: no-repeat;
-    background-image:'src/images/jokeGuy.png';
     background-size: 100% 100%;
-    background-position: top center;
-    width: 90px;
-    height: 60px;
+    width: 6em;
+    height: 5em;
     margin-right: 20px;
+    flex-shrink: 0;
 }
-.pun .title {
-    display: flex;
-    align-items: center;
+
+.punTxt {
+    align-content: center;
+    padding-right: 1em;
 }
+
+
 
 h3{
     font-size: 12px;
@@ -118,10 +114,8 @@ h3{
 }
 
 .generate {
-    /* font-family: initial; */
     padding: 5px 10px;
     border-radius: 5px;
-    /* border: azure; */
     font-size: large;
     /* font-style: oblique; */
     font-weight: 600;
@@ -129,8 +123,10 @@ h3{
     color: #00f3ff;
 }
 
-.fav{
+.fav {
     color: #00f3ff;
-    font-size: x-large;
+    border-radius: 0.5em;
+    padding: 0.5em;
+    background-color: #3c0046;
     padding-left: 0.5em;
 }
