@@ -1,4 +1,4 @@
-//ethyn carnagey 3/02/2025
+//ethyn carnagey 3/07/2025
 // duplicate saved puns in local storage / the archive due to multiple clicks of the same pun in the generator is also INTENTIONAL. you can always delete accidental extras if you double clicked from the archive, and if this were to be an app saving something more important than jokes then you never know if someone wants to add the same thing twice.
 class Pun{
 
