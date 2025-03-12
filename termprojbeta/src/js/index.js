@@ -1,5 +1,5 @@
 //ethyn carnagey 3/07/2025
-// duplicate puns are allowed INTENTIONALLY. i thought about preventing duplicates but theres only so many puns from the joke api and i wanted to be able to have a long list to scroll through. 
+// duplicate puns are allowed INTENTIONALLY. i thought about preventing duplicates but theres only so many puns from the joke api and i wanted to be able to have a long list to scroll through if you're having fun mashing the generate button a bunch. 
 class Generator{
 
     addPun(event){
