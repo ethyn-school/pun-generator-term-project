@@ -1,13 +1,11 @@
 //ethyn carnagey 3/07/2025
 // duplicate saved puns in local storage / the archive due to multiple clicks of the same pun in the generator is also INTENTIONAL. you can always delete accidental extras if you double clicked from the archive, and if this were to be an app saving something more important than jokes then you never know if someone wants to add the same thing twice.
-class Pun{
 
-
-
-    constructor(){
-
+import createNavbar from './navbar';
+class Pun {
+    constructor() {
         try {
-            if(localStorage.getItem("savedPuns") === null ){
+            if (localStorage.getItem("savedPuns") === null) {
                 this.archive = [
                     {
                         title: "add puns to archive using the generator "
@@ -17,11 +15,9 @@ class Pun{
                     },
                 ];
             }
-            else{
+            else {
                 this.archive = JSON.parse(localStorage.getItem("savedPuns"))
             }
-                
-
         } catch (error) {
             this.archive = [
                 {
@@ -33,16 +29,17 @@ class Pun{
             ];
         }
 
-        
         this.addEventHandlers = this.addEventHandlers.bind(this);
         this.displayPuns();
+        const activePage = "Archive";
+        document.getElementById("navbar").innerHTML = createNavbar(activePage);
     }
 
 
-    addEventHandlers(){
+    addEventHandlers() {
         const deleteIcons = document.getElementsByName("deletePun")
         for (let i = 0; i < deleteIcons.length; i++) {
-            deleteIcons[i].onclick =this.deletePun.bind(this, i);
+            deleteIcons[i].onclick = this.deletePun.bind(this, i);
         }
 
         const addButton = document.getElementsByClassName("punTxt");
@@ -54,7 +51,7 @@ class Pun{
 
     generatePunHtml(pun) {
         const punNum = this.archive.indexOf(pun);
-     return `
+        return `
                 <div class="puns-list-content" id="punsList">
         <div><button name="addFav" class="pun" >
             <div class="img" style="background-image:url('./images/jokeGuy.png')">&nbsp;</div>
@@ -65,33 +62,33 @@ class Pun{
         `;
     }
 
-    displayPuns(){
+    displayPuns() {
         let PunHtml = this.archive.map(pun => this.generatePunHtml(pun)).join('');
         document.getElementById("punsList").innerHTML = PunHtml;
         this.addEventHandlers();
         this.setFavColor();
 
     }
-    
-    addFav(index, event){
+
+    addFav(index, event) {
         event.preventDefault();
         console.log("addFav", index);
         this.archive[index].fav = true;
         localStorage.setItem("savedPuns", JSON.stringify(this.archive));
         this.displayPuns();
-    } 
+    }
 
-    setFavColor(){
+    setFavColor() {
         for (let i = 0; i < this.archive.length; i++) {
-            if(this.archive[i].fav === true){
+            if (this.archive[i].fav === true) {
                 let fav = document.getElementById(`pun-${i}`);
                 fav.classList.remove("punTxt");
-                fav.classList.add("fav"); 
+                fav.classList.add("fav");
             }
         }
     }
 
-    deletePun(index, event){
+    deletePun(index, event) {
         event.preventDefault();
         console.log(index);
         this.archive.splice(index, 1)
@@ -100,4 +97,4 @@ class Pun{
     }
 
 }
-window.onload = () => {new Pun();}
+window.onload = () => { new Pun(); }

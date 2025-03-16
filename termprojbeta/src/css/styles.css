@@ -1,19 +1,21 @@
 /* ethyn carnagey 3/7/2025*/
-body { 
+body {
 
     background-image: url('../images/background.gif');
-       background-repeat: repeat;
-       padding:1em;
+    background-repeat: repeat;
+    padding: 1em;
 }
 
-.navbar, .navbar-nav, .navbar>.container-fluid{
+.navbar,
+.navbar-nav,
+.navbar>.container-fluid {
     background-color: #2a004ac4;
     --bs-nav-link-color: #1CE;
     --bs-nav-link-hover-color: #a6eb00;
     --bs-nav-link-font-weight: medium;
     justify-content: center;
-    flex-direction:row;
-    }
+    flex-direction: row;
+}
 
 #archiveTitle {
     display: flex;
@@ -21,19 +23,20 @@ body {
     justify-content: center;
 }
 
-img, svg {
+img,
+svg {
     width: 95vw;
     max-width: 45em;
     border-bottom-style: inset;
     border-color: darkmagenta;
 }
 
-.col{
+.col {
     flex: 0 0 0%;
 }
 
 
-.puns-list-content  {
+.puns-list-content {
     font-size: 16px;
     line-height: 1.5;
     display: flex;
@@ -44,8 +47,8 @@ img, svg {
     border-radius: 5px;
 }
 
-.floater  {
-    background: #2a004ac4;    
+.floater {
+    background: #2a004ac4;
     transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.4) all;
     margin-bottom: 30px;
     z-index: 11;
@@ -59,7 +62,8 @@ img, svg {
     font-size: 16px;
     transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.4) all;
 }
-.floater-buttons   {
+
+.floater-buttons {
     padding: 8px;
     text-align: center;
 }
@@ -74,10 +78,10 @@ button.pun {
     margin: 0.5em;
     font-size: 16px;
 }
-    
-.punTxt:hover   {
+
+.punTxt:hover {
     color: #1CE;
-    text-decoration:underline;
+    text-decoration: underline;
 }
 
 .pun .img {
@@ -95,20 +99,22 @@ button.pun {
 
 
 
-h3{
+h3 {
     font-size: 12px;
-    color:#00aceb;
+    color: #00aceb;
 }
-.instruction{
+
+.instruction {
     text-align: center;
 }
-.bi-trash.delete-icon{
+
+.bi-trash.delete-icon {
     font-size: x-large;
     padding-left: 0.5em;
     color: red
-
 }
-.bi-trash.delete-icon:hover{
+
+.bi-trash.delete-icon:hover {
     font-size: xx-large;
     padding-left: 1em;
 
@@ -130,4 +136,10 @@ h3{
     padding: 0.5em;
     background-color: #3c0046;
     padding-left: 0.5em;
+}
+
+.navbar-nav .nav-link.active{
+    color: purple;
+    text-shadow: 0 0 0 darkgoldenrod;
+    
 }
