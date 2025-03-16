@@ -6,12 +6,10 @@ class Generator {
     constructor() {
         if (localStorage.getItem("savedPuns")) {
             this.savedPuns = JSON.parse(localStorage.getItem("savedPuns"))
-            console.log(this.savedPuns)
 
         }
         else {
             this.savedPuns = [];
-            console.log(this.savedPuns)
         }
 
         this.puns = [];
@@ -23,6 +21,8 @@ class Generator {
         form.onsubmit = this.addPun;
         const activePage = "Generator";
         document.getElementById("navbar").innerHTML = createNavbar(activePage);
+        document.getElementById("instruction1").style.visibility = "hidden";
+        document.getElementById("instruction2").style.visibility = "hidden";
     }
 
     addPun(event) {
@@ -35,12 +35,13 @@ class Generator {
                 };
                 this.puns.push(pun);
                 this.displayPuns(this.puns);
+                document.getElementById("instruction1").style.visibility = "visible"
+                setTimeout(() => document.getElementById("instruction2").style.visibility = "visible", 2500);
             })
             .catch(error => {
                 console.log("there was a problem getting info")
             })
-            ;
-
+        ;
     }
 
     generatePunHtml(pun) {
@@ -60,6 +61,7 @@ class Generator {
         );
         document.getElementById("punsList").innerHTML = PunHtml;
         this.addEventHandlers();
+        
     }
 
     addToArchive(index, event) {
